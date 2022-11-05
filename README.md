@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # Demo
 
-[Git Commit History](https://git-commit-history-ga9g.vercel.app/)
+[Git Commit History](https://git-commit-history.vercel.app)
 
 ## Getting Started
 
