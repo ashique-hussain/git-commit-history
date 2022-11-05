@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import CommitCard from "./views/CommitCard";
@@ -20,14 +20,14 @@ const CommitHistory = () => {
   }, []);
 
   return (
-    <Box>
+    <Container>
       <Typography component="h2" variant="h4">
         Commit History
       </Typography>
       {commit.map(({ commit, sha }) => (
         <CommitCard key={sha} commit={commit} />
       ))}
-    </Box>
+    </Container>
   );
 };
 
