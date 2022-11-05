@@ -12,6 +12,14 @@ const CommitCard = (props: IProps) => {
     message,
     url,
   } = props.commit;
+  const dateTime = new Date(date);
+  const commitDateTime = dateTime.toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+    timeZoneName: "short",
+  });
   return (
     <Card elevation={2} sx={{ my: 1.5 }}>
       <CardContent>
@@ -19,7 +27,7 @@ const CommitCard = (props: IProps) => {
           {message}
         </Typography>
         <Typography variant="body2" sx={{ pt: 0.5 }}>
-          {date} by {name}
+          {commitDateTime} by {name}
         </Typography>
       </CardContent>
     </Card>
