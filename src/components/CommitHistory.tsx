@@ -1,3 +1,5 @@
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import CommitCard from "./views/CommitCard";
 
@@ -8,17 +10,24 @@ const CommitHistory = () => {
     fetch(
       `https://api.github.com/repos/ashique-hussain/git-commit-history/commits`
     )
-      .then((res: { [key: string]: any }) => {
-        setCommit(res.data);
+      .then(async (response: any) => {
+        const commitHistory = await response.json();
+        setCommit(commitHistory);
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
-    <div>
-      {JSON.stringify(commit)}
-      <CommitCard />
-    </div>
+    <Box>
+      <Typography component="h2" variant="h4">
+        Commit History
+      </Typography>
+      {commit.map(({ commit, sha }) => (
+        <CommitCard key={sha} commit={commit} />
+      ))}
+    </Box>
   );
 };
 
